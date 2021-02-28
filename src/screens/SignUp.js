@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, Text, Button, ImageBackground, TextInput, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, Button, ImageBackground, TextInput, TouchableOpacity} from "react-native";
 import { signUp } from '../../Controller/loginController'
 function SignUp({ navigation }) {
     const [email, setEmail] = useState("")
@@ -11,10 +11,16 @@ function SignUp({ navigation }) {
         // props.navigation.navigate('Blooddonor')
         navigation.navigate('Startpage');
     }
+    const image={uri:'https://1stwebdesigner.com/wp-content/uploads/2019/07/css-background-effects-thumb.jpg '}
     return (
+            <ImageBackground source={image} style={{  flex: 1,
+                resizeMode: "cover",
+                justifyContent: "center"}}
+            >
+
         <View style={style.continer}>
             <Text style={style.heading}>
-                If you use this application please Sign In
+         SignUp
             </Text>
             <TextInput style={style.Input} placeholder=" EnterEmail" value={email} onChangeText={(text) => setEmail(text)}>
             </TextInput>
@@ -32,6 +38,8 @@ function SignUp({ navigation }) {
             </TouchableOpacity>
 
         </View>
+                    </ImageBackground>
+
     )
 }
 
@@ -43,19 +51,23 @@ const style = StyleSheet.create({
     },
 
     heading: {
-        fontSize: 18
+        fontSize: 35,
+        fontStyle:'italic',
+        color:'green',
     },
     Input: {
         borderWidth: 1,
         width: '80%',
         marginTop: 20,
+        backgroundColor:'white'
     },
     btn: {
         width: '80%',
         backgroundColor: 'blue',
         marginTop: 20,
         height: 20,
-        borderRadius: 20
+        borderRadius: 20,
+        backgroundColor:'grey'
     }
 })
 
